@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="school@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="school">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <table id="7" parent="2" name="t_Advertsing"/>
+    <table id="8" parent="2" name="t_AdvertsingPosing"/>
+    <table id="9" parent="2" name="t_AdvertsinglnPosing"/>
+    <table id="10" parent="2" name="t_admin"/>
+    <table id="11" parent="2" name="t_attentionUser"/>
+    <table id="12" parent="2" name="t_attitude"/>
+    <table id="13" parent="2" name="t_attitudeRecord"/>
+    <table id="14" parent="2" name="t_categroy"/>
+    <table id="15" parent="2" name="t_colum"/>
+    <table id="16" parent="2" name="t_columAdmin"/>
+    <table id="17" parent="2" name="t_comment"/>
+    <table id="18" parent="2" name="t_contentItem"/>
+    <table id="19" parent="2" name="t_ltemlncategroy"/>
+    <table id="20" parent="2" name="t_plate"/>
+    <table id="21" parent="2" name="t_plateAdmin"/>
+    <table id="22" parent="2" name="t_point"/>
+    <table id="23" parent="2" name="t_rank"/>
+    <table id="24" parent="2" name="t_reprot"/>
+    <table id="25" parent="2" name="t_siglnDetail"/>
+    <table id="26" parent="2" name="t_siglns"/>
+    <table id="27" parent="2" name="t_theme"/>
+    <table id="28" parent="2" name="t_thirdParty"/>
+    <table id="29" parent="2" name="t_user"/>
+    <table id="30" parent="2" name="t_userDetail"/>
+    <column id="31" parent="7" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="32" parent="7" name="name">
+      <Position>2</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="33" parent="7" name="body">
+      <Position>3</Position>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="34" parent="7" name="linkUrl">
+      <Position>4</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="35" parent="7" name="imageId">
+      <Position>5</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="36" parent="7" name="stardate">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="37" parent="7" name="enddate">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="38" parent="7" name="dataCreate">
+      <Position>8</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="39" parent="7" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="40" parent="8" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="41" parent="8" name="description">
+      <Position>2</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="42" parent="8" name="imageId">
+      <Position>3</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="43" parent="8" name="isEnable">
+      <Position>4</Position>
+      <DataType>enum(&apos;1&apos;, &apos;0&apos;)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <key id="44" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="45" parent="9" name="advertsingID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="9" name="postingID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="47" parent="9" name="ap_pk2">
+      <ColNames>postingID</ColNames>
+    </index>
+    <key id="48" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>advertsingID
+postingID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="50" parent="10" name="ip">
+      <Position>2</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="51" parent="10" name="buildTime">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="52" parent="10" name="signinTime">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="53" parent="10" name="signoutTime">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="54" parent="10" name="sigTime">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="55" parent="10" name="adminaccount">
+      <Position>7</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="56" parent="10" name="adminPassword">
+      <Position>8</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <key id="57" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="58" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="59" parent="11" name="userID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="60" parent="11" name="followUserID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="61" parent="11" name="isMutal">
+      <Position>4</Position>
+      <DataType>enum(&apos;1&apos;, &apos;0&apos;)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="62" parent="11" name="dataCreate">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="63" parent="11" name="attention">
+      <ColNames>userID</ColNames>
+    </index>
+    <key id="64" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="65" parent="11" name="attention">
+      <ColNames>userID</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>t_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="66" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="67" parent="12" name="objectID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="68" parent="12" name="userID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="69" parent="12" name="attitude">
+      <ColNames>userID</ColNames>
+    </index>
+    <key id="70" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="71" parent="12" name="attitude">
+      <ColNames>userID</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>t_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="72" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="73" parent="13" name="objectID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="74" parent="13" name="userID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="75" parent="13" name="attitudeID">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="76" parent="13" name="recorda">
+      <ColNames>attitudeID</ColNames>
+    </index>
+    <index id="77" parent="13" name="recorduser">
+      <ColNames>userID</ColNames>
+    </index>
+    <key id="78" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="79" parent="13" name="recorduser">
+      <ColNames>userID</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>t_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="80" parent="13" name="recorda">
+      <ColNames>attitudeID</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>t_attitude</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="81" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="82" parent="14" name="parentID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="83" parent="14" name="ownerID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="84" parent="14" name="categroyName">
+      <Position>4</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="85" parent="14" name="description">
+      <Position>5</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <column id="86" parent="14" name="displayOlder">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="87" parent="14" name="childCount">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="88" parent="14" name="lastModifed">
+      <Position>8</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="89" parent="14" name="dataCreate">
+      <Position>9</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="90" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="91" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="92" parent="15" name="columName">
+      <Position>2</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="93" parent="15" name="description">
+      <Position>3</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="94" parent="15" name="parentID">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="95" parent="15" name="parentList">
+      <Position>5</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="96" parent="15" name="childCount">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="97" parent="15" name="dataCreate">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="98" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="99" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="100" parent="16" name="categroyID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="101" parent="16" name="referencategroyID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="102" parent="16" name="userID">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="103" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="104" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="105" parent="17" name="commentType">
+      <Position>2</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="106" parent="17" name="parentID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="107" parent="17" name="commentObjectID">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="108" parent="17" name="ownerID">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="109" parent="17" name="userID">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="110" parent="17" name="author">
+      <Position>7</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="111" parent="17" name="subject">
+      <Position>8</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="112" parent="17" name="body">
+      <Position>9</Position>
+      <DataType>varchar(2000)|0</DataType>
+    </column>
+    <column id="113" parent="17" name="isPrivate">
+      <Position>10</Position>
+      <DataType>enum(&apos;1&apos;, &apos;0&apos;)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="114" parent="17" name="ip">
+      <Position>11</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="115" parent="17" name="dataCreate">
+      <Position>12</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="116" parent="17" name="commment">
+      <ColNames>userID</ColNames>
+    </index>
+    <key id="117" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="118" parent="17" name="commment">
+      <ColNames>userID</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>t_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="119" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="120" parent="18" name="contentCategroyID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="121" parent="18" name="contentModelID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="122" parent="18" name="subject">
+      <Position>4</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="123" parent="18" name="body">
+      <Position>5</Position>
+      <DataType>varchar(2000)|0</DataType>
+    </column>
+    <column id="124" parent="18" name="featuredmageattachId">
+      <Position>6</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="125" parent="18" name="userID">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="126" parent="18" name="author">
+      <Position>8</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="127" parent="18" name="summary">
+      <Position>9</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="128" parent="18" name="ip">
+      <Position>10</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="129" parent="18" name="datePuished">
+      <Position>11</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="130" parent="18" name="dataCreate">
+      <Position>12</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="131" parent="18" name="lastModifed">
+      <Position>13</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="132" parent="18" name="content">
+      <ColNames>contentCategroyID</ColNames>
+    </index>
+    <key id="133" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="134" parent="18" name="content">
+      <ColNames>contentCategroyID</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>t_colum</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="135" parent="19" name="categroyID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="136" parent="19" name="itemID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="137" parent="19" name="ic_pk2">
+      <ColNames>itemID</ColNames>
+    </index>
+    <key id="138" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>categroyID
+itemID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="139" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="140" parent="20" name="ownerID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="141" parent="20" name="name">
+      <Position>3</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="142" parent="20" name="description">
+      <Position>4</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="143" parent="20" name="featuredmageattachId">
+      <Position>5</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="144" parent="20" name="isEnable">
+      <Position>6</Position>
+      <DataType>enum(&apos;1&apos;, &apos;0&apos;)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="145" parent="20" name="displayOlder">
+      <Position>7</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="146" parent="20" name="dataCreate">
+      <Position>8</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="147" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="148" parent="21" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="149" parent="21" name="categroyID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="150" parent="21" name="referencategroyID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="151" parent="21" name="userID">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="152" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="153" parent="22" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="154" parent="22" name="userID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="155" parent="22" name="description">
+      <Position>3</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="156" parent="22" name="time">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="157" parent="22" name="pointSum">
+      <Position>5</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <index id="158" parent="22" name="point">
+      <ColNames>userID</ColNames>
+    </index>
+    <key id="159" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="160" parent="22" name="point">
+      <ColNames>userID</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>t_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="161" parent="23" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="162" parent="23" name="pointLower">
+      <Position>2</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="163" parent="23" name="rank">
+      <Position>3</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="164" parent="23" name="userID">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="165" parent="23" name="rankName">
+      <Position>5</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <index id="166" parent="23" name="rank">
+      <ColNames>userID</ColNames>
+    </index>
+    <key id="167" parent="23" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="168" parent="23" name="rank">
+      <ColNames>userID</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>t_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="169" parent="24" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="170" parent="24" name="userID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="171" parent="24" name="reason">
+      <Position>3</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="172" parent="24" name="title">
+      <Position>4</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="173" parent="24" name="description">
+      <Position>5</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <column id="174" parent="24" name="statul">
+      <Position>6</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="175" parent="24" name="dataCreate">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="176" parent="24" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="177" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="178" parent="25" name="userID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="179" parent="25" name="expencePiont">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="180" parent="25" name="tradePoint">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="181" parent="25" name="dataCreate">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="182" parent="25" name="siglndatail">
+      <ColNames>userID</ColNames>
+    </index>
+    <key id="183" parent="25" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="184" parent="25" name="siglndatail">
+      <ColNames>userID</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>t_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="185" parent="26" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="186" parent="26" name="userID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="187" parent="26" name="experSum">
+      <Position>3</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="188" parent="26" name="tradePoint">
+      <Position>4</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="189" parent="26" name="monthSignCount">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="190" parent="26" name="lastSiglns">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="191" parent="26" name="siglns">
+      <ColNames>userID</ColNames>
+    </index>
+    <key id="192" parent="26" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="193" parent="26" name="siglns">
+      <ColNames>userID</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>t_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="194" parent="27" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="195" parent="27" name="sectionID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="196" parent="27" name="ownerID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="197" parent="27" name="author">
+      <Position>4</Position>
+      <DataType>varchar(11)|0</DataType>
+    </column>
+    <column id="198" parent="27" name="subject">
+      <Position>5</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="199" parent="27" name="body">
+      <Position>6</Position>
+      <DataType>varchar(2000)|0</DataType>
+    </column>
+    <column id="200" parent="27" name="isLocked">
+      <Position>7</Position>
+      <DataType>enum(&apos;1&apos;, &apos;0&apos;)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="201" parent="27" name="isStiky">
+      <Position>8</Position>
+      <DataType>enum(&apos;1&apos;, &apos;0&apos;)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="202" parent="27" name="approvalstatul">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="203" parent="27" name="ip">
+      <Position>10</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="204" parent="27" name="dataCreate">
+      <Position>11</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="205" parent="27" name="lastMontime">
+      <Position>12</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="206" parent="27" name="theme">
+      <ColNames>sectionID</ColNames>
+    </index>
+    <key id="207" parent="27" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="208" parent="27" name="theme">
+      <ColNames>sectionID</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>t_plate</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="209" parent="28" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="210" parent="28" name="userID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="211" parent="28" name="accountTypeKey">
+      <Position>3</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="212" parent="28" name="identification">
+      <Position>4</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="213" parent="28" name="accesstoken">
+      <Position>5</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <index id="214" parent="28" name="third">
+      <ColNames>userID</ColNames>
+    </index>
+    <key id="215" parent="28" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="216" parent="28" name="third">
+      <ColNames>userID</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>t_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="217" parent="29" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="218" parent="29" name="username">
+      <Position>2</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="219" parent="29" name="usrTel">
+      <Position>3</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="220" parent="29" name="userMail">
+      <Position>4</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="221" parent="29" name="userPassword">
+      <Position>5</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <key id="222" parent="29" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="223" parent="30" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="224" parent="30" name="sex">
+      <Position>2</Position>
+      <DataType>enum(&apos;man&apos;, &apos;woman&apos;)|0</DataType>
+      <DefaultExpression>&apos;man&apos;</DefaultExpression>
+    </column>
+    <column id="225" parent="30" name="birthday">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="226" parent="30" name="integrity">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="227" parent="30" name="qq">
+      <Position>5</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="228" parent="30" name="weixin">
+      <Position>6</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="229" parent="30" name="weibo">
+      <Position>7</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="230" parent="30" name="userID">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="231" parent="30" name="userdetail">
+      <ColNames>userID</ColNames>
+    </index>
+    <key id="232" parent="30" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="233" parent="30" name="userdetail">
+      <ColNames>userID</ColNames>
+      <RefSchemaName>school</RefSchemaName>
+      <RefTableName>t_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

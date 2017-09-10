@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.linjun.dao.ThemeMapper">
+  <resultMap id="BaseResultMap" type="com.linjun.model.Theme">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="sectionID" jdbcType="INTEGER" property="sectionid" />
+    <result column="ownerID" jdbcType="INTEGER" property="ownerid" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="subject" jdbcType="VARCHAR" property="subject" />
+    <result column="body" jdbcType="VARCHAR" property="body" />
+    <result column="isLocked" jdbcType="CHAR" property="islocked" />
+    <result column="isStiky" jdbcType="CHAR" property="isstiky" />
+    <result column="approvalstatul" jdbcType="INTEGER" property="approvalstatul" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="dataCreate" jdbcType="TIMESTAMP" property="datacreate" />
+    <result column="lastMontime" jdbcType="TIMESTAMP" property="lastmontime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, sectionID, ownerID, author, subject, body, isLocked, isStiky, approvalstatul, 
+    ip, dataCreate, lastMontime
+  </sql>
+  <select id="selectByExample" parameterType="com.linjun.model.ThemeCriteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from t_theme
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_theme
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_theme
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.linjun.model.ThemeCriteria">
+    delete from t_theme
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.linjun.model.Theme">
+    insert into t_theme (id, sectionID, ownerID, 
+      author, subject, body, 
+      isLocked, isStiky, approvalstatul, 
+      ip, dataCreate, lastMontime
+      )
+    values (#{id,jdbcType=INTEGER}, #{sectionid,jdbcType=INTEGER}, #{ownerid,jdbcType=INTEGER}, 
+      #{author,jdbcType=VARCHAR}, #{subject,jdbcType=VARCHAR}, #{body,jdbcType=VARCHAR}, 
+      #{islocked,jdbcType=CHAR}, #{isstiky,jdbcType=CHAR}, #{approvalstatul,jdbcType=INTEGER}, 
+      #{ip,jdbcType=VARCHAR}, #{datacreate,jdbcType=TIMESTAMP}, #{lastmontime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.linjun.model.Theme">
+    insert into t_theme
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sectionid != null">
+        sectionID,
+      </if>
+      <if test="ownerid != null">
+        ownerID,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="subject != null">
+        subject,
+      </if>
+      <if test="body != null">
+        body,
+      </if>
+      <if test="islocked != null">
+        isLocked,
+      </if>
+      <if test="isstiky != null">
+        isStiky,
+      </if>
+      <if test="approvalstatul != null">
+        approvalstatul,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="datacreate != null">
+        dataCreate,
+      </if>
+      <if test="lastmontime != null">
+        lastMontime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sectionid != null">
+        #{sectionid,jdbcType=INTEGER},
+      </if>
+      <if test="ownerid != null">
+        #{ownerid,jdbcType=INTEGER},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="subject != null">
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="body != null">
+        #{body,jdbcType=VARCHAR},
+      </if>
+      <if test="islocked != null">
+        #{islocked,jdbcType=CHAR},
+      </if>
+      <if test="isstiky != null">
+        #{isstiky,jdbcType=CHAR},
+      </if>
+      <if test="approvalstatul != null">
+        #{approvalstatul,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="datacreate != null">
+        #{datacreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastmontime != null">
+        #{lastmontime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.linjun.model.ThemeCriteria" resultType="java.lang.Long">
+    select count(*) from t_theme
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_theme
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.sectionid != null">
+        sectionID = #{record.sectionid,jdbcType=INTEGER},
+      </if>
+      <if test="record.ownerid != null">
+        ownerID = #{record.ownerid,jdbcType=INTEGER},
+      </if>
+      <if test="record.author != null">
+        author = #{record.author,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subject != null">
+        subject = #{record.subject,jdbcType=VARCHAR},
+      </if>
+      <if test="record.body != null">
+        body = #{record.body,jdbcType=VARCHAR},
+      </if>
+      <if test="record.islocked != null">
+        isLocked = #{record.islocked,jdbcType=CHAR},
+      </if>
+      <if test="record.isstiky != null">
+        isStiky = #{record.isstiky,jdbcType=CHAR},
+      </if>
+      <if test="record.approvalstatul != null">
+        approvalstatul = #{record.approvalstatul,jdbcType=INTEGER},
+      </if>
+      <if test="record.ip != null">
+        ip = #{record.ip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datacreate != null">
+        dataCreate = #{record.datacreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastmontime != null">
+        lastMontime = #{record.lastmontime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_theme
+    set id = #{record.id,jdbcType=INTEGER},
+      sectionID = #{record.sectionid,jdbcType=INTEGER},
+      ownerID = #{record.ownerid,jdbcType=INTEGER},
+      author = #{record.author,jdbcType=VARCHAR},
+      subject = #{record.subject,jdbcType=VARCHAR},
+      body = #{record.body,jdbcType=VARCHAR},
+      isLocked = #{record.islocked,jdbcType=CHAR},
+      isStiky = #{record.isstiky,jdbcType=CHAR},
+      approvalstatul = #{record.approvalstatul,jdbcType=INTEGER},
+      ip = #{record.ip,jdbcType=VARCHAR},
+      dataCreate = #{record.datacreate,jdbcType=TIMESTAMP},
+      lastMontime = #{record.lastmontime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.linjun.model.Theme">
+    update t_theme
+    <set>
+      <if test="sectionid != null">
+        sectionID = #{sectionid,jdbcType=INTEGER},
+      </if>
+      <if test="ownerid != null">
+        ownerID = #{ownerid,jdbcType=INTEGER},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="subject != null">
+        subject = #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="body != null">
+        body = #{body,jdbcType=VARCHAR},
+      </if>
+      <if test="islocked != null">
+        isLocked = #{islocked,jdbcType=CHAR},
+      </if>
+      <if test="isstiky != null">
+        isStiky = #{isstiky,jdbcType=CHAR},
+      </if>
+      <if test="approvalstatul != null">
+        approvalstatul = #{approvalstatul,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="datacreate != null">
+        dataCreate = #{datacreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastmontime != null">
+        lastMontime = #{lastmontime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.linjun.model.Theme">
+    update t_theme
+    set sectionID = #{sectionid,jdbcType=INTEGER},
+      ownerID = #{ownerid,jdbcType=INTEGER},
+      author = #{author,jdbcType=VARCHAR},
+      subject = #{subject,jdbcType=VARCHAR},
+      body = #{body,jdbcType=VARCHAR},
+      isLocked = #{islocked,jdbcType=CHAR},
+      isStiky = #{isstiky,jdbcType=CHAR},
+      approvalstatul = #{approvalstatul,jdbcType=INTEGER},
+      ip = #{ip,jdbcType=VARCHAR},
+      dataCreate = #{datacreate,jdbcType=TIMESTAMP},
+      lastMontime = #{lastmontime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

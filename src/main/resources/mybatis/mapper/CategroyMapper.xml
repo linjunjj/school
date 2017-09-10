@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.linjun.dao.CategroyMapper">
+  <resultMap id="BaseResultMap" type="com.linjun.model.Categroy">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="parentID" jdbcType="INTEGER" property="parentid" />
+    <result column="ownerID" jdbcType="INTEGER" property="ownerid" />
+    <result column="categroyName" jdbcType="VARCHAR" property="categroyname" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="displayOlder" jdbcType="INTEGER" property="displayolder" />
+    <result column="childCount" jdbcType="INTEGER" property="childcount" />
+    <result column="lastModifed" jdbcType="TIMESTAMP" property="lastmodifed" />
+    <result column="dataCreate" jdbcType="TIMESTAMP" property="datacreate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, parentID, ownerID, categroyName, description, displayOlder, childCount, lastModifed, 
+    dataCreate
+  </sql>
+  <select id="selectByExample" parameterType="com.linjun.model.CategroyCriteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from t_categroy
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_categroy
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_categroy
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.linjun.model.CategroyCriteria">
+    delete from t_categroy
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.linjun.model.Categroy">
+    insert into t_categroy (id, parentID, ownerID, 
+      categroyName, description, displayOlder, 
+      childCount, lastModifed, dataCreate
+      )
+    values (#{id,jdbcType=INTEGER}, #{parentid,jdbcType=INTEGER}, #{ownerid,jdbcType=INTEGER}, 
+      #{categroyname,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{displayolder,jdbcType=INTEGER}, 
+      #{childcount,jdbcType=INTEGER}, #{lastmodifed,jdbcType=TIMESTAMP}, #{datacreate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.linjun.model.Categroy">
+    insert into t_categroy
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="parentid != null">
+        parentID,
+      </if>
+      <if test="ownerid != null">
+        ownerID,
+      </if>
+      <if test="categroyname != null">
+        categroyName,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="displayolder != null">
+        displayOlder,
+      </if>
+      <if test="childcount != null">
+        childCount,
+      </if>
+      <if test="lastmodifed != null">
+        lastModifed,
+      </if>
+      <if test="datacreate != null">
+        dataCreate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="ownerid != null">
+        #{ownerid,jdbcType=INTEGER},
+      </if>
+      <if test="categroyname != null">
+        #{categroyname,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="displayolder != null">
+        #{displayolder,jdbcType=INTEGER},
+      </if>
+      <if test="childcount != null">
+        #{childcount,jdbcType=INTEGER},
+      </if>
+      <if test="lastmodifed != null">
+        #{lastmodifed,jdbcType=TIMESTAMP},
+      </if>
+      <if test="datacreate != null">
+        #{datacreate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.linjun.model.CategroyCriteria" resultType="java.lang.Long">
+    select count(*) from t_categroy
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_categroy
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.parentid != null">
+        parentID = #{record.parentid,jdbcType=INTEGER},
+      </if>
+      <if test="record.ownerid != null">
+        ownerID = #{record.ownerid,jdbcType=INTEGER},
+      </if>
+      <if test="record.categroyname != null">
+        categroyName = #{record.categroyname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.displayolder != null">
+        displayOlder = #{record.displayolder,jdbcType=INTEGER},
+      </if>
+      <if test="record.childcount != null">
+        childCount = #{record.childcount,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastmodifed != null">
+        lastModifed = #{record.lastmodifed,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.datacreate != null">
+        dataCreate = #{record.datacreate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_categroy
+    set id = #{record.id,jdbcType=INTEGER},
+      parentID = #{record.parentid,jdbcType=INTEGER},
+      ownerID = #{record.ownerid,jdbcType=INTEGER},
+      categroyName = #{record.categroyname,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
+      displayOlder = #{record.displayolder,jdbcType=INTEGER},
+      childCount = #{record.childcount,jdbcType=INTEGER},
+      lastModifed = #{record.lastmodifed,jdbcType=TIMESTAMP},
+      dataCreate = #{record.datacreate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.linjun.model.Categroy">
+    update t_categroy
+    <set>
+      <if test="parentid != null">
+        parentID = #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="ownerid != null">
+        ownerID = #{ownerid,jdbcType=INTEGER},
+      </if>
+      <if test="categroyname != null">
+        categroyName = #{categroyname,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="displayolder != null">
+        displayOlder = #{displayolder,jdbcType=INTEGER},
+      </if>
+      <if test="childcount != null">
+        childCount = #{childcount,jdbcType=INTEGER},
+      </if>
+      <if test="lastmodifed != null">
+        lastModifed = #{lastmodifed,jdbcType=TIMESTAMP},
+      </if>
+      <if test="datacreate != null">
+        dataCreate = #{datacreate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.linjun.model.Categroy">
+    update t_categroy
+    set parentID = #{parentid,jdbcType=INTEGER},
+      ownerID = #{ownerid,jdbcType=INTEGER},
+      categroyName = #{categroyname,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      displayOlder = #{displayolder,jdbcType=INTEGER},
+      childCount = #{childcount,jdbcType=INTEGER},
+      lastModifed = #{lastmodifed,jdbcType=TIMESTAMP},
+      dataCreate = #{datacreate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
