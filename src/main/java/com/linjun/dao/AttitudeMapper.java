@@ -4,7 +4,9 @@ import com.linjun.model.Attitude;
 import com.linjun.model.AttitudeCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface AttitudeMapper {
     long countByExample(AttitudeCriteria example);
 

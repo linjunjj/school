@@ -4,7 +4,9 @@ import com.linjun.model.Comment;
 import com.linjun.model.CommentCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface CommentMapper {
     long countByExample(CommentCriteria example);
 

@@ -4,7 +4,9 @@ import com.linjun.model.PlateAdmin;
 import com.linjun.model.PlateAdminCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface PlateAdminMapper {
     long countByExample(PlateAdminCriteria example);
 

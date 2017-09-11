@@ -4,7 +4,9 @@ import com.linjun.model.UserDetail;
 import com.linjun.model.UserDetailCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserDetailMapper {
     long countByExample(UserDetailCriteria example);
 

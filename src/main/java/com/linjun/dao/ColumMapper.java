@@ -4,7 +4,9 @@ import com.linjun.model.Colum;
 import com.linjun.model.ColumCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ColumMapper {
     long countByExample(ColumCriteria example);
 

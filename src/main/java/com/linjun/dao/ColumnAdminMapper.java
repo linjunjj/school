@@ -4,7 +4,9 @@ import com.linjun.model.ColumnAdmin;
 import com.linjun.model.ColumnAdminCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ColumnAdminMapper {
     long countByExample(ColumnAdminCriteria example);
 

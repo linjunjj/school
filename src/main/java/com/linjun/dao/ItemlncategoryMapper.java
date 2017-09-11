@@ -4,7 +4,9 @@ import com.linjun.model.Itemlncategory;
 import com.linjun.model.ItemlncategoryCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ItemlncategoryMapper {
     long countByExample(ItemlncategoryCriteria example);
 

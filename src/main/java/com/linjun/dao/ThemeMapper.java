@@ -4,7 +4,9 @@ import com.linjun.model.Theme;
 import com.linjun.model.ThemeCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ThemeMapper {
     long countByExample(ThemeCriteria example);
 

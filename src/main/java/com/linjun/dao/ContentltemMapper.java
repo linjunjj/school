@@ -4,7 +4,9 @@ import com.linjun.model.Contentltem;
 import com.linjun.model.ContentltemCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ContentltemMapper {
     long countByExample(ContentltemCriteria example);
 

@@ -4,7 +4,9 @@ import com.linjun.model.AttentionUser;
 import com.linjun.model.AttentionUserCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface AttentionUserMapper {
     long countByExample(AttentionUserCriteria example);
 

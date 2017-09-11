@@ -4,7 +4,9 @@ import com.linjun.model.Categroy;
 import com.linjun.model.CategroyCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface CategroyMapper {
     long countByExample(CategroyCriteria example);
 

@@ -4,7 +4,9 @@ import com.linjun.model.AttitudeRecord;
 import com.linjun.model.AttitudeRecordCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface AttitudeRecordMapper {
     long countByExample(AttitudeRecordCriteria example);
 

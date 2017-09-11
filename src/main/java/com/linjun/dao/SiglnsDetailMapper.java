@@ -4,7 +4,9 @@ import com.linjun.model.SiglnsDetail;
 import com.linjun.model.SiglnsDetailCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface SiglnsDetailMapper {
     long countByExample(SiglnsDetailCriteria example);
 

@@ -4,7 +4,9 @@ import com.linjun.model.Point;
 import com.linjun.model.PointCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface PointMapper {
     long countByExample(PointCriteria example);
 

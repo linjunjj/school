@@ -4,7 +4,9 @@ import com.linjun.model.Rank;
 import com.linjun.model.RankCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface RankMapper {
     long countByExample(RankCriteria example);
 

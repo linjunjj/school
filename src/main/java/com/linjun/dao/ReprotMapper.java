@@ -4,7 +4,9 @@ import com.linjun.model.Reprot;
 import com.linjun.model.ReprotCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ReprotMapper {
     long countByExample(ReprotCriteria example);
 

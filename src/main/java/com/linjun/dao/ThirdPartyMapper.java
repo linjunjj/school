@@ -4,7 +4,9 @@ import com.linjun.model.ThirdParty;
 import com.linjun.model.ThirdPartyCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ThirdPartyMapper {
     long countByExample(ThirdPartyCriteria example);
 
