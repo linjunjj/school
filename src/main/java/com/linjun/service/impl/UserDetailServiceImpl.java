@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class UserDetailServiceImpl implements UserDetailService {
     @Autowired
-    UserDetailMapper userDetailMapper;
+  private   UserDetailMapper userDetailMapper;
 
     public int inserts(UserDetail userDetail) {
         return userDetailMapper.insert(userDetail);

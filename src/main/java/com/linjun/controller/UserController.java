@@ -23,7 +23,7 @@ public class UserController {
     }
     @ApiOperation(value = "创建用户",notes = "根据User对象创建对象", produces = "application/json")
    @PostMapping(value = "/buildUser")
-    public int postUser(String userName,String userTel,String userMail,String userPassword) {
+    public @ResponseBody int postUser(@RequestParam(value = "userName") String userName,@RequestParam(value = "userTel") String userTel,@RequestParam(value = "userMail")String userMail,@RequestParam(value = "userPassword") String userPassword) {
           User user=new User();
         user.setUsername(userName);
         user.setUsrtel(userTel);
@@ -32,12 +32,12 @@ public class UserController {
         return userService.inserts(user) ;
     }
     @ApiOperation(value="删除用户", notes="根据url的id来指定删除对象", produces = "application/json")
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "delete/{id}")
     public int deleteUser(@PathVariable Integer id) {
       return userService.deleteByKey(id);}
 
     @ApiOperation(value = "查找用户",notes = "根据用户名查找用户", produces = "application/json")
-    @GetMapping(value = "/{username}")
+    @GetMapping(value = "findUser/{username}")
     public  boolean findUser(@PathVariable String username){
         if (userService.findByUserName(username)!=null){
             return true;
