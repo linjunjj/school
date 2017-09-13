@@ -26,7 +26,7 @@ public class ThirtdParthServiceImpl implements ThirdParthService {
     public int updates(int id, ThirdParty thirdParty) {
         ThirdPartyCriteria thirdPartyCriteria=new ThirdPartyCriteria();
         ThirdPartyCriteria.Criteria criteria=thirdPartyCriteria.createCriteria();
-        criteria.andIdEqualTo(id);
+        criteria.andUseridEqualTo(id);
         return thirdPartyMapper.updateByExampleSelective(thirdParty,thirdPartyCriteria);
     }
 

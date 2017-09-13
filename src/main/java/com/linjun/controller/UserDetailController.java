@@ -28,9 +28,9 @@ public class UserDetailController {
 
         return userService.deletesById(id);
     }
-    @PutMapping(value = "/update/{id}")
+    @PutMapping(value = "/update/{userid}")
     @ApiOperation(value = "更新数据",notes = "根据id更新用户数据",produces = "application/json")
-    public  boolean updatedate(@PathVariable int id, String sex, Date birthday, int intergrity, String qq, String weixin, String weibo){
+    public  boolean updatedate(@PathVariable int userid, String sex, Date birthday, int intergrity, String qq, String weixin, String weibo){
          UserDetail userDetail=new UserDetail();
          userDetail.setSex(sex);
          userDetail.setBirthday(birthday);
@@ -38,7 +38,7 @@ public class UserDetailController {
          userDetail.setIntegrity(intergrity);
          userDetail.setWeixin(weixin);
          userDetail.setWeibo(weibo);
-        int a=userService.updatedate(id,userDetail);
+        int a=userService.updatedate(userid,userDetail);
         if (a!=0)
             return true;
         else

@@ -81,5 +81,11 @@ public class AdminServiceImpl implements AdminService {
         return adminMapper.selectByExample(adminCriteria);
     }
 
+    public int updateAdminbyName(String name, Admin admin) {
+        AdminCriteria adminCriteria=new AdminCriteria();
+        AdminCriteria.Criteria criteria=adminCriteria.createCriteria();
+        criteria.andAdminaccountEqualTo(name);
+        return adminMapper.updateByExample(admin,adminCriteria);
+    }
 
 }

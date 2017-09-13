@@ -30,10 +30,9 @@ public class AttentionUserController {
     public  @ResponseBody int update(@RequestParam(value = "userID")int userId,@RequestParam(value = "followUserID")int followUserID,@RequestParam(value = "isMutal")int isMutal){
   AttentionUser attentionUser=new AttentionUser();
   attentionUser.setDatacreate(new Date());
-  attentionUser.setUserid(userId);
   attentionUser.setFollowuserid(followUserID);
   attentionUser.setIsmutal(String.valueOf(isMutal));
-   return attentionUserService.updates(attentionUser);
+   return attentionUserService.updates(userId,attentionUser);
     }
  @ApiOperation(value = "删除数据",notes = "根据UseriID数据",produces = "application/json")
     @DeleteMapping(value = "delete/{userID}")

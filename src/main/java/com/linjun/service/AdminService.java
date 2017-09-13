@@ -16,4 +16,5 @@ public interface AdminService {
     public  List<Admin> selectBycondition(String ...arg);
     public int updateAdmin(int id,Admin admin);
     public  List<Admin> findByName(String adminName);
+    public  int updateAdminbyName(String name,Admin admin);
 }

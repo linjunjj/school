@@ -26,7 +26,7 @@ public class UserDetailServiceImpl implements UserDetailService {
     public int updatedate(int id, UserDetail userDetail) {
         UserDetailCriteria userDetailCriteria=new UserDetailCriteria();
         UserDetailCriteria.Criteria criteria=userDetailCriteria.createCriteria();
-        criteria.andIdEqualTo(id);
+        criteria.andUseridEqualTo(id);
         return userDetailMapper.updateByExampleSelective(userDetail,userDetailCriteria);
     }
 

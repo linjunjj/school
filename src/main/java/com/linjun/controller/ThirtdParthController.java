@@ -29,11 +29,10 @@ public class ThirtdParthController {
     public @ResponseBody int updates(@RequestParam(value ="userID")int userID,@RequestParam(value = "accountTypeKey")String accountTypeKey,
                                      @RequestParam(value = "identification") String identification,@RequestParam(value = "accesstoken") String accesstoken){
        ThirdParty thirdParty=new ThirdParty();
-       thirdParty.setUserid(userID);
        thirdParty.setAccounttypekey(accountTypeKey);
        thirdParty.setAccesstoken(accesstoken);
        thirdParty.setIdentification(identification);
-       return  thirdParthService.updatesThird(thirdParty);
+       return  thirdParthService.updates(userID,thirdParty);
   }
    @ApiOperation(value = "删除数据",notes = "根据的userID删除数据",produces = "application/json")
     @DeleteMapping(value = "/delete/{userID}")
