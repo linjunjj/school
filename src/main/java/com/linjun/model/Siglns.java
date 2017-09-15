@@ -51,7 +51,7 @@ public class Siglns {
         return monthsigncount;
     }
 
-    public void setMonthsigncount(Integer monthsigncount) {
+    public void setMonthsigncount(String monthsigncount) {
         this.monthsigncount = monthsigncount;
     }
 
