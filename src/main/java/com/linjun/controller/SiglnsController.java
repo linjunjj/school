@@ -20,7 +20,7 @@ public class SiglnsController {
  @ApiOperation(value = "添加数据",notes = "添加数据",produces = "application/json")
  @PostMapping(value = "/insert")
     public  @ResponseBody int insert(@RequestParam(value = "userID")int userID, @RequestParam(value = "experSum")long experSum,
-                                     @RequestParam(value = "tradePoint")long tradePoint, @RequestParam(value ="monthSignCount")String monthSignCount, @RequestParam(value = "lastSiglns")Date lastsiglns){
+                                     @RequestParam(value = "tradePoint")long tradePoint, @RequestParam(value ="monthSignCount")int monthSignCount, @RequestParam(value = "lastSiglns")Date lastsiglns){
 
      Siglns siglns=new Siglns();
      siglns.setUserid(userID);
@@ -33,7 +33,7 @@ public class SiglnsController {
    @ApiOperation(value = "更新数据",notes = "根据userid更新数据")
     @PutMapping(value = "/update")
     public  @ResponseBody int update(@RequestParam(value = "userID")int userID, @RequestParam(value = "experSum")long experSum,
-                                     @RequestParam(value = "tradePoint")long tradePoint, @RequestParam(value ="monthSignCount")String monthSignCount, @RequestParam(value = "lastSiglns")Date lastsiglns){
+                                     @RequestParam(value = "tradePoint")long tradePoint, @RequestParam(value ="monthSignCount")int monthSignCount, @RequestParam(value = "lastSiglns")Date lastsiglns){
         Siglns siglns=new Siglns();
         siglns.setLastsiglns(lastsiglns);
         siglns.setMonthsigncount(monthSignCount);
